@@ -17,7 +17,7 @@ class MiniMax:
     def __init__(self):
         self.choice = -1
 
-    def minimax(self, game_board: board.Board, depth: int):
+    def minimax(self, game_board: board.Board, depth: int) -> int:
         if game_board.check_result()[0]:
             return move_score(game_board, depth)
 
@@ -34,7 +34,7 @@ class MiniMax:
 
         # Do the min or the max calculation
 
-        if game_board.active_turn == board.AI:
+        if game_board.active_turn == "AI":
             # This is the max calculation
             max_score_index = scores.index(max(scores))
             self.choice = moves[max_score_index]

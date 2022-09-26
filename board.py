@@ -9,15 +9,9 @@ class Board:
         self.board = [" ", " ", " ",
                       " ", " ", " ",
                       " ", " ", " "]
-        self.active_turn = random.choice([PLAYER, AI])
-
-    def is_valid_move(self, index) -> bool:
-        return self.board[index] == " " and index in range(0, 9)
+        self.active_turn = random.choice([AI])
 
     def play(self, index) -> bool:
-        if not self.is_valid_move(index):
-            return False
-
         if self.active_turn == PLAYER:
             self.board[index] = "X"
             self.active_turn = AI
@@ -26,13 +20,6 @@ class Board:
             self.active_turn = PLAYER
 
         return True
-
-    def print(self) -> None:
-        print(f" {self.board[0]} | {self.board[1]} | {self.board[2]}")
-        print("-----------")
-        print(f" {self.board[3]} | {self.board[4]} | {self.board[5]}")
-        print("-----------")
-        print(f" {self.board[6]} | {self.board[7]} | {self.board[8]}")
 
     # Returns (bool, bool/None)
     # First item is if game is over, True/False
